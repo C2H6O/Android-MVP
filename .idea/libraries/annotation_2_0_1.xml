@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="annotation-2.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hannesdorfmann.fragmentargs/annotation/2.0.1/e592e6285431c60ec5f7416d4b99edb4ab9b6ca9/annotation-2.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hannesdorfmann.fragmentargs/annotation/2.0.1/9f032a78f1544f3a48361444e7a1a3285873ec5b/annotation-2.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
