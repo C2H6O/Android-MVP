@@ -6,7 +6,11 @@ apply plugin: 'com.jfrog.bintray'
 
 // This is the library version used when deploying the artifact
 version = "1.0.0"
-group = "net.doubov"
+group = "net.doubov"                                        // Maven Group ID for the artifact
+def repoName = 'Android-MVP'
+def siteUrl = 'https://github.com/C2H6O/' + repoName      // Homepage URL of the library
+def gitUrl = siteUrl + '.git'   // Git repository URL
+
 
 android {
     compileSdkVersion 22
@@ -66,15 +70,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.1.0'
 }
 
-
-
-
-
-def siteUrl = 'https://github.com/izacus/FuzzyDateFormatter'      // Homepage URL of the library
-def gitUrl = 'https://github.com/izacus/FuzzyDateFormatter.git'   // Git repository URL
-group = "<maven group id>"                                        // Maven Group ID for the artifact
-
-
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
@@ -128,4 +123,26 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives javadocJar
     archives sourcesJar
+}
+
+task findConventions << {
+    println project.getConvention()
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = repoName
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
 }
