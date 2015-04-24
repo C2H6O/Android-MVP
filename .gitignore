@@ -12,6 +12,8 @@
 
 *.iml
 
+.idea/workspace.xml
+
 # Generated files
 bin/
 gen/
