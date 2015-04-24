@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 
 
 // This is the library version used when deploying the artifact
-version = "1.0.0"
+version = "1.0.2"
 group = "net.doubov"                                        // Maven Group ID for the artifact
 def repoName = 'Android-MVP'
 def siteUrl = 'https://github.com/C2H6O/' + repoName      // Homepage URL of the library
@@ -112,14 +112,21 @@ task sourcesJar(type: Jar) {
 }
 
 task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    android.libraryVariants.all { variant ->
+        task("generate${variant.name.capitalize()}JavaDoc", type: Javadoc) {
+            description "Generates Javadoc for $variant.name."
+            source = variant.javaCompile.source
+            ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+            classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+        }
+    }
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
+
 artifacts {
     archives javadocJar
     archives sourcesJar
