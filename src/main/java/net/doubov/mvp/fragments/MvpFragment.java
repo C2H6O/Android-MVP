@@ -34,4 +34,8 @@ public abstract class MvpFragment<P extends MvpPresenter> extends BaseFragment i
 
     protected abstract P getPresenter();
 
+    @Override
+    protected void onDependenciesInjected() {
+        mPresenter = getPresenter();
+    }
 }

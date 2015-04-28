@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import com.hannesdorfmann.fragmentargs.FragmentArgs;
-
 import butterknife.ButterKnife;
 import icepick.Icepick;
 
