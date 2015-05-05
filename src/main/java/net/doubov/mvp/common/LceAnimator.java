@@ -50,10 +50,12 @@ public class LceAnimator {
     /**
      * Shows the error view instead of the loading view
      */
-    public static void showErrorView(final View loadingView, final View contentView,
+    public static void showErrorView(boolean shouldAnimate,
+                                     final View loadingView,
+                                     final View contentView,
                                      final TextView errorView) {
 
-        if (Build.VERSION.SDK_INT < 11) {
+        if (Build.VERSION.SDK_INT < 11 || !shouldAnimate) {
             // Before honeycomb
             contentView.setVisibility(View.GONE);
             loadingView.setVisibility(View.GONE);
@@ -94,7 +96,9 @@ public class LceAnimator {
      * Display the content instead of the loadingView
      */
     @TargetApi(11)
-    public static void showContent(final View loadingView, final View contentView,
+    public static void showContent(boolean shouldAnimate,
+                                   final View loadingView,
+                                   final View contentView,
                                    final View errorView) {
 
         if (contentView.getVisibility() == View.VISIBLE) {
@@ -103,7 +107,7 @@ public class LceAnimator {
             loadingView.setVisibility(View.GONE);
         } else {
 
-            if (Build.VERSION.SDK_INT < 14) {
+            if (Build.VERSION.SDK_INT < 14 || !shouldAnimate) {
                 // Before honeycomb
 
                 loadingView.setVisibility(View.GONE);
