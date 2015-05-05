@@ -72,6 +72,7 @@ public abstract class MvpLceDialogFragment<CV extends View, M, V extends MvpLceV
 
     @Override
     public void showError(String message) {
+        mErrorView.setText(message);
         LceAnimator.showErrorView(mAnimateChanges, mLoadingView, mContentView, mErrorView);
     }
 

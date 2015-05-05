@@ -18,6 +18,7 @@ public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>
     protected View mLoadingView;
     protected CV mContentView;
     protected TextView mErrorView;
+    protected boolean mAnimateChanges = true;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -60,20 +61,23 @@ public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>
 
     protected abstract void onErrorViewClicked();
 
+    protected void setAnimateChanges(boolean animateChanges) {
+        mAnimateChanges = animateChanges;
+    }
+
     @Override
     public void showLoading() {
         LceAnimator.showLoading(mLoadingView, mContentView, mErrorView);
     }
-
     @Override
     public void showContent() {
-        LceAnimator.showContent(mLoadingView, mContentView, mErrorView);
+        LceAnimator.showContent(mAnimateChanges, mLoadingView, mContentView, mErrorView);
     }
 
     @Override
     public void showError(String message) {
         mErrorView.setText(message);
-        LceAnimator.showErrorView(mLoadingView, mContentView, mErrorView);
+        LceAnimator.showErrorView(mAnimateChanges, mLoadingView, mContentView, mErrorView);
     }
 
 }
