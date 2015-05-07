@@ -16,6 +16,4 @@ public interface MvpLceView<M> extends MvpView {
 
     void clearData();
 
-    void injectDependencies();
-
 }

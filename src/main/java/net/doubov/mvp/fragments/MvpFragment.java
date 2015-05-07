@@ -29,7 +29,8 @@ public abstract class MvpFragment<P extends MvpPresenter> extends BaseFragment i
         mPresenter.detachView();
     }
 
-    public abstract void injectDependencies();
+    @Override
+    protected abstract void injectDependencies();
 
     protected abstract P getPresenter();
 
