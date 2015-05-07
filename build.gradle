@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 
 
 // This is the library version used when deploying the artifact
-version = "1.0.6"
+version = "1.0.7"
 group = "net.doubov"                                        // Maven Group ID for the artifact
 def repoName = 'Android-MVP'
 def siteUrl = 'https://github.com/C2H6O/' + repoName      // Homepage URL of the library
@@ -45,7 +45,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.0'
+        classpath 'com.android.tools.build:gradle:1.2.3'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
         classpath 'com.github.dcendents:android-maven-plugin:1.2'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1'
@@ -55,8 +55,8 @@ buildscript {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:22.0.0'
-    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:appcompat-v7:22.1.1'
     // Dagger
     compile 'com.squareup.dagger:dagger:1.2.2'
     compile 'com.squareup.dagger:dagger-compiler:1.2.2'
