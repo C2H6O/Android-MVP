@@ -16,7 +16,7 @@ public abstract class BaseFragment extends Fragment {
 //        FragmentArgs.inject(this);
         Icepick.restoreInstanceState(this, savedInstanceState);
 
-        injectDependencies(getActivity());
+        injectDependencies();
         onDependenciesInjected();
 
     }
@@ -42,7 +42,7 @@ public abstract class BaseFragment extends Fragment {
         ButterKnife.reset(this);
     }
 
-    protected void injectDependencies(Context context) {
+    public void injectDependencies() {
 
     }
 

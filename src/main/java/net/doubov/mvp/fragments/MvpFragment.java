@@ -1,6 +1,5 @@
 package net.doubov.mvp.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
@@ -30,7 +29,7 @@ public abstract class MvpFragment<P extends MvpPresenter> extends BaseFragment i
         mPresenter.detachView();
     }
 
-    protected abstract void injectDependencies(Context context);
+    public abstract void injectDependencies();
 
     protected abstract P getPresenter();
 
