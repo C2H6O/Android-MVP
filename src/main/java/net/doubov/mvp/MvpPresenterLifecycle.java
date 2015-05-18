@@ -4,4 +4,6 @@ public interface MvpPresenterLifecycle {
 
     void onResume();
 
+    void onDestroy();
+
 }
