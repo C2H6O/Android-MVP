@@ -28,4 +28,13 @@ public abstract class MvpBasePresenter<V extends MvpView>
         return mViewRef != null && mViewRef.get() != null;
     }
 
+    @Override
+    public void onCreate() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+
+    }
 }
