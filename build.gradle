@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 
 
 // This is the library version used when deploying the artifact
-version = "1.1.3"
+version = "1.1.4"
 group = "net.doubov"                                        // Maven Group ID for the artifact
 def repoName = 'Android-MVP'
 def siteUrl = 'https://github.com/C2H6O/' + repoName      // Homepage URL of the library
