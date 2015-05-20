@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import net.doubov.mvp.MvpBasePresenter;
 import net.doubov.mvp.common.MvpLceView;
 import net.doubov.mvp.fragments.MvpFragment;
 import net.doubov.mvp.MvpPresenter;
@@ -11,7 +12,7 @@ import net.doubov.mvp.common.LceAnimator;
 
 import net.doubov.mvp.R;
 
-public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>, P extends MvpPresenter<V>>
+public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>, P extends MvpBasePresenter<V>>
         extends MvpFragment<P>
         implements MvpLceView<M> {
 
