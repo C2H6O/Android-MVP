@@ -31,6 +31,12 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragme
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        mPresenter.onStart();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         mPresenter.onResume();
