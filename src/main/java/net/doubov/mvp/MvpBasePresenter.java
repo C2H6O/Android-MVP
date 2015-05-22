@@ -33,6 +33,10 @@ public abstract class MvpBasePresenter<V extends MvpView>
     }
 
     @Override
+    public void onStart() {
+    }
+
+    @Override
     public void onDestroy() {
     }
 
