@@ -16,4 +16,6 @@ public interface MvpLceView<M> extends MvpView {
 
     void clearData();
 
+    M getUiData();
+
 }
