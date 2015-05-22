@@ -44,6 +44,7 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragme
     @Override
     protected void onDependenciesInjected() {
         mPresenter = getPresenter();
+        onPresenterInjected();
         mPresenter.onCreate();
     }
 
@@ -52,4 +53,9 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragme
         super.onDestroy();
         mPresenter.onDestroy();
     }
+
+    protected void onPresenterInjected() {
+
+    }
+
 }
