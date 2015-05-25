@@ -9,6 +9,7 @@ import net.doubov.mvp.MvpView;
 public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragment implements MvpView {
 
     protected P mPresenter;
+    private boolean mPresenterViewAttached = false;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -21,15 +22,24 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragme
         }
     }
 
+    protected void attachPresenterView() {
+        mPresenter.attachView(this);
+        mPresenterViewAttached = true;
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         mPresenter.detachView();
+        mPresenterViewAttached = false;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        if (!mPresenterViewAttached) {
+            throw new IllegalStateException("Attach Presenter's View by calling attachPresenterView()");
+        }
         mPresenter.onStart();
     }
 

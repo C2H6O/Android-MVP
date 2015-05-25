@@ -53,7 +53,6 @@ public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>
         });
         onLceViewsCreated();
 
-        mPresenter.attachView((V) this);
     }
 
     protected void onLceViewsCreated() {
