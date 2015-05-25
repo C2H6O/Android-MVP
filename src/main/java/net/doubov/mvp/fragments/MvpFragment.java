@@ -5,6 +5,7 @@ import android.view.View;
 
 import net.doubov.mvp.MvpBasePresenter;
 import net.doubov.mvp.MvpView;
+import net.doubov.mvp.common.MvpLceView;
 
 public abstract class MvpFragment<M, V extends MvpView<M>, P extends MvpBasePresenter<M,V>> extends BaseFragment implements MvpView<M> {
 
