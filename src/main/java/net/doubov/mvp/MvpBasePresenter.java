@@ -2,8 +2,8 @@ package net.doubov.mvp;
 
 import java.lang.ref.WeakReference;
 
-public abstract class MvpBasePresenter<V extends MvpView>
-        implements MvpPresenter<V>, MvpPresenterLifecycle {
+public abstract class MvpBasePresenter<M, V extends MvpView<M>>
+        implements MvpPresenter<M,V>, MvpPresenterLifecycle {
 
     private WeakReference<V> mViewRef;
 

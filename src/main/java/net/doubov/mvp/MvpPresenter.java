@@ -1,6 +1,6 @@
 package net.doubov.mvp;
 
-public interface MvpPresenter<V extends MvpView> {
+public interface MvpPresenter<M, V extends MvpView<M>> {
 
     void attachView(V view);
 

@@ -6,7 +6,7 @@ import android.view.View;
 import net.doubov.mvp.MvpBasePresenter;
 import net.doubov.mvp.MvpView;
 
-public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragment implements MvpView {
+public abstract class MvpFragment<M, V extends MvpView<M>, P extends MvpBasePresenter<M,V>> extends BaseFragment implements MvpView<M> {
 
     protected P mPresenter;
     private boolean mPresenterViewAttached = false;
@@ -23,7 +23,7 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragme
     }
 
     protected void attachPresenterView() {
-        mPresenter.attachView(this);
+        mPresenter.attachView((V) this);
         mPresenterViewAttached = true;
     }
 

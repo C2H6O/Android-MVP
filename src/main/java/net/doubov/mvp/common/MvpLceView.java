@@ -2,7 +2,7 @@ package net.doubov.mvp.common;
 
 import net.doubov.mvp.MvpView;
 
-public interface MvpLceView<M> extends MvpView {
+public interface MvpLceView<M> extends MvpView<M> {
 
     void showLoading();
 

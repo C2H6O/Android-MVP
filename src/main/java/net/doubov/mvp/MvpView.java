@@ -1,4 +1,4 @@
 package net.doubov.mvp;
 
-public interface MvpView {
+public interface MvpView<M> {
 }

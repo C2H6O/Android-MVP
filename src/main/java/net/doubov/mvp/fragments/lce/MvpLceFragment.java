@@ -11,8 +11,8 @@ import net.doubov.mvp.common.LceAnimator;
 
 import net.doubov.mvp.R;
 
-public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>, P extends MvpBasePresenter<V>>
-        extends MvpFragment<P>
+public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>, P extends MvpBasePresenter<M, V>>
+        extends MvpFragment<M,V,P>
         implements MvpLceView<M> {
 
     protected View mLoadingView;
