@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import net.doubov.mvp.MvpBasePresenter;
-import net.doubov.mvp.MvpPresenter;
 import net.doubov.mvp.MvpView;
 
 public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragment implements MvpView {
@@ -21,6 +20,14 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragme
             throw new IllegalStateException("Presenter must not be null!");
         }
 
+        attachPresenterView();
+    }
+
+    /**
+     * Subclasses should override this method if some of the Presenter's view dependencies are not
+     * solely satisfied by this class.
+     */
+    protected void attachPresenterView() {
         mPresenter.attachView(this);
     }
 

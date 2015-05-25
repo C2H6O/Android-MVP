@@ -7,7 +7,6 @@ import android.widget.TextView;
 import net.doubov.mvp.MvpBasePresenter;
 import net.doubov.mvp.common.MvpLceView;
 import net.doubov.mvp.fragments.MvpFragment;
-import net.doubov.mvp.MvpPresenter;
 import net.doubov.mvp.common.LceAnimator;
 
 import net.doubov.mvp.R;
@@ -52,12 +51,17 @@ public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>
                 onErrorViewClicked();
             }
         });
+        attachPresenterView();
         onLceViewsCreated();
 
     }
 
-    protected void onLceViewsCreated() {
+    @Override
+    protected void attachPresenterView() {
+        mPresenter.attachView((V) this);
+    }
 
+    protected void onLceViewsCreated() {
     }
 
     protected abstract void onErrorViewClicked();
