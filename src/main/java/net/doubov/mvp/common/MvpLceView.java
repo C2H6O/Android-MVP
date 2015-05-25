@@ -13,9 +13,9 @@ public interface MvpLceView<M> extends MvpView {
     void setData(M data);
 
     boolean hasData();
-
+    /**
+     * Clear the data.
+     */
     void clearData();
-
-    M getUiData();
 
 }
