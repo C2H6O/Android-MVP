@@ -19,16 +19,6 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends BaseFragme
         if (mPresenter == null) {
             throw new IllegalStateException("Presenter must not be null!");
         }
-
-        attachPresenterView();
-    }
-
-    /**
-     * Subclasses should override this method if some of the Presenter's view dependencies are not
-     * solely satisfied by this class.
-     */
-    protected void attachPresenterView() {
-        mPresenter.attachView(this);
     }
 
     @Override

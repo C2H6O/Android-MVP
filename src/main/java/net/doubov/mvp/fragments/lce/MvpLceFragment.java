@@ -51,13 +51,8 @@ public abstract class MvpLceFragment<CV extends View, M, V extends MvpLceView<M>
                 onErrorViewClicked();
             }
         });
-        attachPresenterView();
         onLceViewsCreated();
 
-    }
-
-    @Override
-    protected void attachPresenterView() {
         mPresenter.attachView((V) this);
     }
 
