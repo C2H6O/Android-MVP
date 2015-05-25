@@ -3,15 +3,15 @@ package net.doubov.mvp.fragments;
 import net.doubov.mvp.MvpBasePresenter;
 import net.doubov.mvp.common.MvpLceView;
 
-public class MvpBaseLcePresenter<M, V extends MvpLceView<M>> extends MvpBasePresenter<M,V> {
+public class MvpBaseLcePresenter<RM, M, V extends MvpLceView<M>> extends MvpBasePresenter<M,V> {
 
-    protected M mData;
+    protected RM mData;
 
-    public M getData() {
+    public RM getData() {
         return mData;
     }
 
-    public void setData(M data) {
+    public void setData(RM data) {
         mData = data;
     }
 }
