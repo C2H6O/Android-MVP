@@ -5,7 +5,6 @@ import android.view.View;
 
 import net.doubov.mvp.MvpBasePresenter;
 import net.doubov.mvp.MvpView;
-import net.doubov.mvp.common.MvpLceView;
 
 public abstract class MvpFragment<M, V extends MvpView<M>, P extends MvpBasePresenter<M,V>> extends BaseFragment implements MvpView<M> {
 
@@ -41,7 +40,6 @@ public abstract class MvpFragment<M, V extends MvpView<M>, P extends MvpBasePres
         if (!mPresenterViewAttached) {
             throw new IllegalStateException("Attach Presenter's View by calling attachPresenterView()");
         }
-        mPresenter.onStart();
     }
 
     @Override
@@ -59,7 +57,6 @@ public abstract class MvpFragment<M, V extends MvpView<M>, P extends MvpBasePres
     protected void onDependenciesInjected() {
         mPresenter = getPresenter();
         onPresenterInjected();
-        mPresenter.onCreate();
     }
 
     @Override

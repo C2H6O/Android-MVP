@@ -31,14 +31,6 @@ public abstract class MvpBasePresenter<M, V extends MvpView<M>>
     }
 
     @Override
-    public void onCreate() {
-    }
-
-    @Override
-    public void onStart() {
-    }
-
-    @Override
     public void onDestroy() {
     }
 
