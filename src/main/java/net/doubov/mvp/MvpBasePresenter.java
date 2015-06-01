@@ -1,7 +1,5 @@
 package net.doubov.mvp;
 
-import net.doubov.mvp.common.MvpLceView;
-
 import java.lang.ref.WeakReference;
 
 public abstract class MvpBasePresenter<M, V extends MvpView<M>>
@@ -31,10 +29,15 @@ public abstract class MvpBasePresenter<M, V extends MvpView<M>>
     }
 
     @Override
-    public void onDestroy() {
+    public void onCreate() {
     }
 
     @Override
     public void onResume() {
     }
+
+    @Override
+    public void onDestroy() {
+    }
+
 }

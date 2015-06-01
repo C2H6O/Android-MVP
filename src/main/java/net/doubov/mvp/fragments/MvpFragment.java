@@ -15,8 +15,6 @@ public abstract class MvpFragment<M, V extends MvpView<M>, P extends MvpBasePres
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mPresenter = getPresenter();
-
         if (mPresenter == null) {
             throw new IllegalStateException("Presenter must not be null!");
         }
@@ -56,6 +54,7 @@ public abstract class MvpFragment<M, V extends MvpView<M>, P extends MvpBasePres
     @Override
     protected void onDependenciesInjected() {
         mPresenter = getPresenter();
+        mPresenter.onCreate();
         onPresenterInjected();
     }
 
